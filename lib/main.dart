@@ -5,7 +5,6 @@ import 'package:rafiq/core/app/app.locator.dart';
 import 'package:rafiq/core/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
@@ -25,6 +24,12 @@ class MainApp extends StatelessWidget {
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
+      theme: ThemeData(
+          colorScheme: ColorScheme.light(
+        background: Colors.white70,
+        primary: Colors.greenAccent.shade200,
+        secondary: Colors.blueAccent.shade200,
+      )),
       navigatorObservers: [
         StackedService.routeObserver,
       ],
