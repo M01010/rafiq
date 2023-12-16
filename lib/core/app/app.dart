@@ -8,6 +8,8 @@ import 'package:rafiq/ui/views/navigation/navigation_view.dart';
 import 'package:rafiq/ui/views/login/login_view.dart';
 import 'package:rafiq/ui/views/profile/profile_view.dart';
 import 'package:rafiq/ui/views/map/map_view.dart';
+import 'package:rafiq/ui/views/supervisor/supervisor_view.dart';
+import 'package:rafiq/ui/views/driver/driver_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -18,6 +20,8 @@ import 'package:rafiq/ui/views/map/map_view.dart';
     MaterialRoute(page: LoginView),
     MaterialRoute(page: ProfileView),
     MaterialRoute(page: MapView),
+    MaterialRoute(page: SupervisorView),
+    MaterialRoute(page: DriverView),
 // @stacked-route
   ],
   dependencies: [

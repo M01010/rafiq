@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rafiq/ui/views/driver/driver_view.dart';
 import 'package:rafiq/ui/views/home/home_view.dart';
 import 'package:rafiq/ui/views/profile/profile_view.dart';
 import 'package:stacked/stacked.dart';
 
+import '../supervisor/supervisor_view.dart';
 import 'navigation_viewmodel.dart';
 
 class NavigationView extends StackedView<NavigationViewModel> {
@@ -16,7 +18,8 @@ class NavigationView extends StackedView<NavigationViewModel> {
   ) {
     final List<Widget> pages = [
       const HomeView(),
-      const HomeView(),
+      const DriverView(),
+      const SupervisorView(),
       const ProfileView(),
     ];
     return Scaffold(
@@ -26,19 +29,26 @@ class NavigationView extends StackedView<NavigationViewModel> {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home),
-            label: 'home',
+            label: '',
           ),
           NavigationDestination(
-            icon: Icon(Icons.bus_alert),
-            label: 'home',
+            icon: Icon(Icons.directions_bus_filled),
+            label: '',
           ),
           NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'profile',
+            icon: Icon(Icons.ad_units),
+            label: '',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.account_circle_rounded),
+            label: '',
           ),
         ],
       ),
-      body: pages[viewModel.index],
+      body: IndexedStack(
+        index: viewModel.index,
+        children: pages,
+      ),
     );
   }
 

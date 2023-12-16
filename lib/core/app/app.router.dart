@@ -5,16 +5,18 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i8;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
+import 'package:rafiq/ui/views/driver/driver_view.dart' as _i9;
 import 'package:rafiq/ui/views/home/home_view.dart' as _i2;
 import 'package:rafiq/ui/views/login/login_view.dart' as _i5;
 import 'package:rafiq/ui/views/map/map_view.dart' as _i7;
 import 'package:rafiq/ui/views/navigation/navigation_view.dart' as _i4;
 import 'package:rafiq/ui/views/profile/profile_view.dart' as _i6;
 import 'package:rafiq/ui/views/startup/startup_view.dart' as _i3;
+import 'package:rafiq/ui/views/supervisor/supervisor_view.dart' as _i8;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i9;
+import 'package:stacked_services/stacked_services.dart' as _i11;
 
 class Routes {
   static const homeView = '/home-view';
@@ -29,6 +31,10 @@ class Routes {
 
   static const mapView = '/map-view';
 
+  static const superviserView = '/superviser-view';
+
+  static const driverView = '/driver-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -36,6 +42,8 @@ class Routes {
     loginView,
     profileView,
     mapView,
+    superviserView,
+    driverView,
   };
 }
 
@@ -65,42 +73,62 @@ class StackedRouter extends _i1.RouterBase {
       Routes.mapView,
       page: _i7.MapView,
     ),
+    _i1.RouteDef(
+      Routes.superviserView,
+      page: _i8.SupervisorView,
+    ),
+    _i1.RouteDef(
+      Routes.driverView,
+      page: _i9.DriverView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.NavigationView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.NavigationView(),
         settings: data,
       );
     },
     _i5.LoginView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.LoginView(),
         settings: data,
       );
     },
     _i6.ProfileView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ProfileView(),
         settings: data,
       );
     },
     _i7.MapView: (data) {
-      return _i8.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.MapView(),
+        settings: data,
+      );
+    },
+    _i8.SupervisorView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i8.SupervisorView(),
+        settings: data,
+      );
+    },
+    _i9.DriverView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i9.DriverView(),
         settings: data,
       );
     },
@@ -113,7 +141,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i9.NavigationService {
+extension NavigatorStateExtension on _i11.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -198,6 +226,34 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToSuperviserView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.superviserView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToDriverView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.driverView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -276,6 +332,34 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.mapView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithSuperviserView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.superviserView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithDriverView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.driverView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

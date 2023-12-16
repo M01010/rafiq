@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:rafiq/ui/common/app_colors.dart';
+import 'package:rafiq/ui/common/custom_app_bar.dart';
+import 'package:rafiq/ui/common/school_icon.dart';
+import 'package:rafiq/ui/common/ui_helpers.dart';
+import 'package:stacked/stacked.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:rafiq/ui/common/custom_app_bar.dart';
-import 'package:stacked/stacked.dart';
-
-import '../../common/app_colors.dart';
 import '../../common/bus_icon.dart';
-import '../../common/school_icon.dart';
 import '../../common/student_icon.dart';
-import '../../common/ui_helpers.dart';
-import 'map_viewmodel.dart';
+import 'driver_viewmodel.dart';
 
-class MapView extends StackedView<MapViewModel> {
-  const MapView({super.key});
+class DriverView extends StackedView<DriverViewModel> {
+  const DriverView({super.key});
 
   @override
   Widget builder(
     BuildContext context,
-    MapViewModel viewModel,
+    DriverViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.support_agent))
+        ],
+      ),
       body: SafeArea(
         child: FlutterMap(
           options: MapOptions(
@@ -94,13 +97,14 @@ class MapView extends StackedView<MapViewModel> {
               ),
             ),
           ],
-        )
+        ),
       ),
     );
   }
 
   @override
-  MapViewModel viewModelBuilder(
+  DriverViewModel viewModelBuilder(
     BuildContext context,
-  ) => MapViewModel();
+  ) =>
+      DriverViewModel();
 }

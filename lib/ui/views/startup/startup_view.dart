@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:rafiq/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 import 'package:rafiq/ui/common/ui_helpers.dart';
 
@@ -14,25 +16,29 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+            SvgPicture.asset('assets/big-logo.svg'),
+            const SizedBox(
+              height: 20,
             ),
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
+                Text(
+                  'جاري التحميل ...',
+                  style: TextStyle(fontSize: 16, fontFamily: 'Almarai'),
+                ),
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
-                    color: Colors.black,
+                    color: kcSecondaryColor,
                     strokeWidth: 6,
                   ),
                 )

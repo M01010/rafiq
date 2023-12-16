@@ -3,6 +3,7 @@ import 'package:rafiq/core/app/app.bottomsheets.dart';
 import 'package:rafiq/core/app/app.dialogs.dart';
 import 'package:rafiq/core/app/app.locator.dart';
 import 'package:rafiq/core/app/app.router.dart';
+import 'package:rafiq/ui/common/app_colors.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
@@ -25,11 +26,12 @@ class MainApp extends StatelessWidget {
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       theme: ThemeData(
-          colorScheme: ColorScheme.light(
-        background: Colors.white70,
-        primary: Colors.greenAccent.shade200,
-        secondary: Colors.blueAccent.shade200,
-      )),
+          colorScheme: const ColorScheme.light(
+        background: kcBackgroundColor,
+        primary: kcSecondaryColor2,
+        secondary: kcGreyColor,
+      ),
+      fontFamily: 'almarai'),
       navigatorObservers: [
         StackedService.routeObserver,
       ],

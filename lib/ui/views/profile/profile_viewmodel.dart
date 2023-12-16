@@ -1,7 +1,6 @@
 import 'package:rafiq/core/app/app.bottomsheets.dart';
 import 'package:rafiq/core/app/app.dialogs.dart';
 import 'package:rafiq/core/app/app.locator.dart';
-import 'package:rafiq/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -29,8 +28,8 @@ class ProfileViewModel extends BaseViewModel {
   void showBottomSheet() {
     _bottomSheetService.showCustomSheet(
       variant: BottomSheetType.notice,
-      title: ksHomeBottomSheetTitle,
-      description: ksHomeBottomSheetDescription,
+      title: '',
+      description: '',
     );
   }
 }
